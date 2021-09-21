@@ -1,11 +1,37 @@
-import React from 'react'
+import { Grid, makeStyles } from "@material-ui/core";
+import Add from "../grid/Add";
+import Feed from "../grid/Feed";
+import Leftbar from "../grid/Leftbar";
+import Navbar from "../grid/Navbar";
+import Rightbar from "../grid/Rightbar";
 
-function Home() {
-    return (
-        <div>
-            <h1>This is home page</h1>
-        </div>
-    )
-}
+const useStyles = makeStyles((theme) => ({
+  right: {
+    [theme.breakpoints.down("sm")]: {
+      display: "none",
+    },
+  },
+}));
 
-export default Home
+const Home = () => {
+  const classes = useStyles();
+  return (
+    <div>
+      <Navbar />
+      <Grid container>
+        <Grid item sm={2} xs={2}>
+          <Leftbar />
+        </Grid>
+        <Grid item sm={7} xs={10}>
+          <Feed />
+        </Grid>
+        <Grid item sm={3} className={classes.right}>
+          <Rightbar />
+        </Grid>
+      </Grid>
+      <Add />
+    </div>
+  );
+};
+
+export default Home;
