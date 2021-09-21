@@ -1,13 +1,15 @@
 import './App.css';
-import Button from '@mui/material/Button';
-import { AccessAlarm, ThreeDRotation } from '@mui/icons-material';
-import AccountCircleIcon from '@mui/icons-material/AccountCircle';
+import {BrowserRouter as Router, Link, Route, Switch, Redirect} from 'react-router-dom';
+import Home from './components/Home';
 
 function App() {
   return (
     <div className="App">
-     <h1>Hello UoN Aces</h1>
-     <AccessAlarm />
+     <Router>
+       <Switch>
+         <Route exact path="/" component={Home}/>
+       </Switch>
+     </Router>
     </div>
   );
 }
