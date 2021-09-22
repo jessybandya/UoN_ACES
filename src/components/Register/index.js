@@ -168,20 +168,21 @@ function Register() {
             <div class="pb-5"> <img  className="img1" src="https://www.studentportal.news/wp-content/uploads/2018/08/UniversityOfNairobi.jpg" alt="" style={{maxHeight: "350px",opacity: "0.7",borderRadius: "50px"}}/> </div>
         </div>
         <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
-            <div class="pt-4">
+            <div  class="pt-4">
                 {/* <h6 style={{color: "lightblue"}}><span class="fa fa-superpowers text-primary px-md-2"></span>University Of nairobi</h6> */}
             </div>
-            <div class="mt-3 mt-md-5">
+            <div style={{border: "1px solid #3f51b5",padding:10,borderRadius:10}}  class="mt-3 mt-md-5">
                 
                 <h5 style={{color: "#3f51b5"}}>Create an Account</h5>
+                <hr />
                 <form class="pt-4">
-                <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="text">First Name</label> <input style={{color: "#6495ED"}} type="text" onChange={(e) => {
+                <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="text">First Name</label> <input  type="text" onChange={(e) => {
                                 setFirstName(e.target.value);
                             }} name="name1" id="emailId" class="border-bottom border-primary" required/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}}  for="text">Middle Name</label> <input style={{color: "#6495ED"}} onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Middle Name</label> <input  onChange={(e) => {
                                 setMiddleName(e.target.value);
                             }} type="text" name="name2" id="pwd" class="border-bottom border-primary" required/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}}  for="text">Last Name</label> <input style={{color: "#6495ED"}} type="text" onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Last Name</label> <input  type="text" onChange={(e) => {
                                 setLastName(e.target.value)
                             }} name="name3"  id="pwd" class="border-bottom border-primary" required/> </div>
                          
@@ -419,20 +420,20 @@ function Register() {
                             <option value="1905">1905</option>
                         </select>
                     </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="text">Reg No.</label> <input style={{color: "#6495ED"}} onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="text">Reg No.</label> <input  onChange={(e) => {
                                 setReg(e.target.value)
                             }} type="text" name="email" id="emailId" class="border-bottom border-primary"/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="email">School Email</label> <input style={{color: "#6495ED"}} onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="email">School Email</label> <input  onChange={(e) => {
                                 setEmail(e.target.value)
                             }} type="email" name="email" id="emailId" class="border-bottom border-primary"/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="password"> Set Password</label> <input style={{color: "#6495ED"}} type="password" onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="password"> Set Password</label> <input  type="password" onChange={(e) => {
                                 setPassword(e.target.value)
                             }} name="passwrd" id="pwd" class="border-bottom border-primary"/> </div>
-                            <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="password">Confirm Password</label> <input style={{color: "#6495ED"}} type="password" onChange={(e) => {
+                            <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="password">Confirm Password</label> <input  type="password" onChange={(e) => {
                                 setPassword1(e.target.value)
                             }} name="passwrd" id="pwd" class="border-bottom border-primary"/> </div>
                     <div className="">
-                    <h5 style={{marginLeft: "0%",color: "#3f51b5"}} >Gender</h5>
+                    <h5 style={{background: "white",color:"#3f51b5",fontWeight: "600"}} >Gender</h5>
                   
                     <div  className="register__radiocontainer">
                         <div className="wrapper">
@@ -452,7 +453,7 @@ function Register() {
                  
                     
                     <div class="d-flex jusity-content-end pb-4">
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "#3f51b5",color:"white",borderRadius: "10px"}} for="password">Other Profession(s)</label> <input style={{color: "#6495ED"}} type="text" onChange={(e) => {
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="password">Other Profession(s)</label> <input  type="text" onChange={(e) => {
                                 setOthers(e.target.value)
                             }} name="passwrd" id="pwd" class="border-bottom border-primary"/> </div>
                         {/* <div class="ml-auto"> <a href="#" class="text-danger text-decoration-none">Forgot password?</a> </div> */}

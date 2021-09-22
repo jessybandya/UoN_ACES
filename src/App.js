@@ -9,7 +9,7 @@ import {auth} from "./components/firebase"
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
-
+import Blog from './components/Blog';
 
 function App() {
   const [user, setUser] = useState([]);
@@ -26,7 +26,7 @@ function App() {
     <div className="App">
      <Router>
        <Switch>
-         <Route exact path="/" component={Home}/>
+         <Route exact path="/" component={Blog}/>
          <Route exact path="/login" component={Login}/>
          <Route exact path="/register" component={Register}/>
 
