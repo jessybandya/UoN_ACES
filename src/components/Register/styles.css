@@ -14,7 +14,9 @@ input {
 
 @media(max-width:991px) {
 
-
+.img1{
+  display: none;
+}
   #circle {
       border: 10px solid rgba(255, 0, 234, 0.945);
       border-radius: 50%;

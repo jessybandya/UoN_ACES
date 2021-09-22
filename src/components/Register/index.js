@@ -165,7 +165,7 @@ function Register() {
     <div class="row d-flex justify-content-start align-items-center mt-sm-5">
         <div class="col-lg-5 col-10">
             {/* <div id="circle"></div> */}
-            <div class="pb-5"> <img src="https://www.studentportal.news/wp-content/uploads/2018/08/UniversityOfNairobi.jpg" alt="" style={{maxHeight: "350px",opacity: "0.7",borderRadius: "50px"}}/> </div>
+            <div class="pb-5"> <img  className="img1" src="https://www.studentportal.news/wp-content/uploads/2018/08/UniversityOfNairobi.jpg" alt="" style={{maxHeight: "350px",opacity: "0.7",borderRadius: "50px"}}/> </div>
         </div>
         <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
             <div class="pt-4">
