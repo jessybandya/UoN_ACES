@@ -10,6 +10,9 @@ import {
   } from "@material-ui/core";
   import { Cancel, Mail, Notifications, Search } from "@material-ui/icons";
   import { useState } from "react";
+  // import NumberFormat from 'react-number-format';
+
+
   
   const useStyles = makeStyles((theme) => ({
     toolbar: {
@@ -67,16 +70,51 @@ import {
   }));
   
   const Navbar = () => {
+    function kFormatter(num) {
+      return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'k' : Math.sign(num)*Math.abs(num)
+  }
+      
+  function abbrNum(number, decPlaces) {
+    // 2 decimal places => 100, 3 => 1000, etc
+    decPlaces = Math.pow(10,decPlaces);
+
+    // Enumerate number abbreviations
+    var abbrev = [ "K", "M", "B", "T" ];
+
+    // Go through the array backwards, so we do the largest first
+    for (var i=abbrev.length-1; i>=0; i--) {
+
+        // Convert array index to "1000", "1000000", etc
+        var size = Math.pow(10,(i+1)*3);
+
+        // If the number is bigger or equal do the abbreviation
+        if(size <= number) {
+             // Here, we multiply by decPlaces, round, and then divide by decPlaces.
+             // This gives us nice rounding to a particular decimal place.
+             number = Math.round(number*decPlaces/size)/decPlaces;
+
+             // Add the letter for the abbreviation
+             number += abbrev[i];
+
+             // We are done... stop
+             break;
+        }
+    }
+
+    return number;
+}
+
+// {abbrNum(1200000,3)}
     const [open, setOpen] = useState(false);
     const classes = useStyles({ open });
     return (
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.logoLg}>
-            Lama Dev
+            UoN_ACES
           </Typography>
           <Typography variant="h6" className={classes.logoSm}>
-            LAMA
+          UoN_ACES
           </Typography>
           <div className={classes.search}>
             <Search />
@@ -88,10 +126,10 @@ import {
               className={classes.searchButton}
               onClick={() => setOpen(true)}
             />
-            <Badge badgeContent={4} color="secondary" className={classes.badge}>
+            <Badge badgeContent={5} color="secondary" className={classes.badge}>
               <Mail />
             </Badge>
-            <Badge badgeContent={2} color="secondary" className={classes.badge}>
+            <Badge badgeContent={200} color="secondary" className={classes.badge}>
               <Notifications />
             </Badge>
             <Avatar

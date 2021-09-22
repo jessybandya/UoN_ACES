@@ -18,8 +18,6 @@ const Home = () => {
   return (
     <div>
       <Navbar />
-      <h1>hello </h1>
-
       <Grid container>
         <Grid item sm={2} xs={2}>
           <Leftbar />

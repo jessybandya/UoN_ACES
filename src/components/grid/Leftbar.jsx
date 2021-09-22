@@ -1,4 +1,4 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
+import { Container, makeStyles, Typography, Badge } from "@material-ui/core";
 import {
   Bookmark,
   List,
@@ -54,7 +54,9 @@ const Leftbar = () => {
   return (
     <Container className={classes.container}>
       <div className={classes.item}>
+      {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
         <Home className={classes.icon} />
+        {/* </Badge> */}
         <Typography className={classes.text}>Homepage</Typography>
       </div>
       <div className={classes.item}>
