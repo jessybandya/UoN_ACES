@@ -459,7 +459,7 @@ function Register() {
                     </div> <input type="button" onClick={register}
                             type="submit" value="Sign up" style={{backgroundColor: "#3f51b5"}} class="btn btn-primary btn-block mb-3" /> 
                     <div class="register mt-5">
-                        <p>Do you have an account? <a href="/login">click here</a></p>
+                        <p>Do you have an account? <a style={{color: "#3f51b5"}} href="/login">click here</a></p>
                     </div>
                 </form>
                                 </div>
