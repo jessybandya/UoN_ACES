@@ -13,14 +13,14 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Home = () => {
+const Home = ({user}) => {
   const classes = useStyles();
   return (
     <div>
-      <Navbar />
+      <Navbar user={user}/>
       <Grid container>
         <Grid item sm={2} xs={2}>
-          <Leftbar />
+          <Leftbar user={user}/>
         </Grid>
         <Grid item sm={7} xs={10}>
           <Feed />

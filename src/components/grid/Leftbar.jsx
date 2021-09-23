@@ -11,6 +11,10 @@ import {
   Storefront,
   TabletMac,
 } from "@material-ui/icons";
+import { useState,useEffect } from "react";
+import { db,auth } from "../firebase"
+import { useHistory } from "react-router";
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -49,8 +53,24 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Leftbar = () => {
+const Leftbar = ({user}) => {
   const classes = useStyles();
+  const [profileUserData, setProfileUserData] = useState();
+  const history = useHistory("");
+
+
+  useEffect(() => {
+    db.collection('users').doc(`${user?.uid}`).onSnapshot((doc) => {
+        setProfileUserData(doc.data());
+    });
+}, [])
+
+const logout = () => {
+  if (user) {
+    auth.signOut();
+    history.push("/login");
+  }
+}
   return (
     <Container className={classes.container}>
       <div className={classes.item}>
@@ -92,8 +112,8 @@ const Leftbar = () => {
         <Typography className={classes.text}>Settings</Typography>
       </div>
       <div className={classes.item}>
-        <ExitToApp className={classes.icon} />
-        <Typography className={classes.text}>Logout</Typography>
+        <ExitToApp onClick={logout} className={classes.icon} />
+        <Typography onClick={logout} className={classes.text}>Logout</Typography>
       </div>
     </Container>
   );

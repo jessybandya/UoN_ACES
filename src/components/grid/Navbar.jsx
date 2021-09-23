@@ -9,7 +9,8 @@ import {
     Typography,
   } from "@material-ui/core";
   import { Cancel, Mail, Notifications, Search } from "@material-ui/icons";
-  import { useState } from "react";
+  import { useState,useEffect } from "react";
+  import { db,auth } from "../firebase"
   // import NumberFormat from 'react-number-format';
 
 
@@ -69,7 +70,7 @@ import {
     },
   }));
   
-  const Navbar = () => {
+  const Navbar = ({user}) => {
     function kFormatter(num) {
       return Math.abs(num) > 999 ? Math.sign(num)*((Math.abs(num)/1000).toFixed(1)) + 'K' : Math.sign(num)*Math.abs(num)
   }
@@ -107,14 +108,26 @@ import {
 // {abbrNum(1200000,3)}
     const [open, setOpen] = useState(false);
     const classes = useStyles({ open });
+    const [profileUserData, setProfileUserData] = useState();
+
+
+    useEffect(() => {
+      db.collection('users').doc(`${auth?.currentUser?.uid}`).onSnapshot((doc) => {
+          setProfileUserData(doc.data());
+      });
+  }, [])
     return (
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
           <Typography variant="h6" className={classes.logoLg}>
-            UoN_ACES
+          <a href="/">
+            <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+            </a>
           </Typography>
           <Typography variant="h6" className={classes.logoSm}>
-          UoN_ACES
+          <a href="/">
+            <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
+            </a>
           </Typography>
           <div className={classes.search}>
             <Search />
@@ -126,6 +139,8 @@ import {
               className={classes.searchButton}
               onClick={() => setOpen(true)}
             />
+            {auth?.currentUser?.uid &&(
+              <>
             <Badge badgeContent={5} color="secondary" className={classes.badge}>
               <Mail />
             </Badge>
@@ -133,9 +148,21 @@ import {
               <Notifications />
             </Badge>
             <Avatar
-              alt="Remy Sharp"
-              src="https://images.pexels.com/photos/8647814/pexels-photo-8647814.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500"
+              alt={`${profileUserData?.username}`}
+              src={profileUserData?.photoURL}
             />
+              </>
+            )}
+        {!auth?.currentUser?.uid &&(
+          <div style={{display: "flex",justifyContent: "space-between",width: 100}}>
+            <a href="/register">
+            <div style={{fontWeight: "500",color: "#fff"}}>Register</div>
+            </a>
+            <a href="/login">
+            <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Login</div>
+            </a>
+          </div>
+        )}
           </div>
         </Toolbar>
       </AppBar>

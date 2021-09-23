@@ -26,10 +26,17 @@ function App() {
     <div className="App">
      <Router>
        <Switch>
-         <Route exact path="/" component={Blog}/>
+
+
+            
+         <Route exact path="/blog" component={Blog}/>
          <Route exact path="/login" component={Login}/>
          <Route exact path="/register" component={Register}/>
-
+         <Route exact path="/"
+            render={ () => !auth.currentUser ? <Redirect to="/login" /> :(
+              <Home user={user}/>   
+                 
+           )}/> 
        </Switch>
      </Router>
     </div>

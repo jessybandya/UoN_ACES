@@ -5,14 +5,16 @@ import {auth,db} from './../firebase';
 import { useHistory, Link } from 'react-router-dom';
 import FormSelect from './../forms/FormSelect';
 import FormInput from './../forms/Forminput';
-
+import { Grid, makeStyles } from "@material-ui/core";
+import CircularProgress from '@mui/material/CircularProgress';
+import Box from '@mui/material/Box';
 
 function Register() {
 
     const history = useHistory("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
-    const [middleName, setMiddleName] = useState("");
+    const [username, setMiddleName] = useState("");
     const [reg, setReg] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
@@ -23,138 +25,148 @@ function Register() {
     const [others, setOthers] = useState("");
     const [member, setMember] = useState("");
     const [gender, setGender] = useState('');
-
+    const [loading,setLoading] = useState(false)
    
 
     const register = (event) => {
+        setLoading(true)
         event.preventDefault();
         // if (birthday[2] >= 2010) {
         //     return alert("You are not eligible to register to Facebook!")
         // }
         let errors = {};
 
-  if (!firstName.trim()) {
-    errors.firstName = alert('First name is required');
-  } else if (!/^[A-Za-z]+/.test(firstName.trim())) {
-      errors.firstName = alert('Enter a valid first name');
-  }else if(!lastName.trim()){
-    errors.lastName = alert('Last name is required');
-} else if (!/^[A-Za-z]+/.test(lastName.trim())) {
-    errors.lastName = alert('Enter a valid last name');
-}else if(!middleName.trim()){
-    errors.middleName = alert('Middle name is required');
-} else if (!/^[A-Za-z]+/.test(lastName.trim())) {
-    errors.lastName = alert('Enter a valid middle name');
-}else if(!reg.trim()){
-    errors.reg = alert('Registration number is required');
-} else if (!/^[A-Z0-9/]+/.test(reg.trim())) {
-    errors.reg = alert('Enter a valid registration number');
-}else if(!birthday[0]){
-    errors.birthday = alert('Birth day is required');
-}else if(!birthday[1]){
-    errors.birthday = alert('Birth month is required');
-}
-    else if(!birthday[2]){
-        errors.birthday = alert('Birth year is required');
-}else if(!year.trim()){
-    errors.year = alert('Year of study is required');
-} else if (!/^[0-9]+/.test(year.trim())) {
-    errors.year = alert('Enter a valid academic Year');
+        try{
 
-}else if(!member.trim()){
-    errors.member = alert('Membership field is required');
-} else if (!/^[A-Za-z]+/.test(member.trim())) {
-    errors.member = alert('Enter a valid name');
-}else if(!cat.trim()){
-    errors.cat = alert('Category is required');
-} else if (!/^[A-Za-z]+/.test(cat.trim())) {
-    errors.cat = alert('Enter a valid category name');
-}else if(!gender.trim()){
-    errors.gender = alert('Gender is required');
-} else if (!/^[A-Za-z]+/.test(gender.trim())) {
-    errors.gender = alert('Enter a valid gender name');
-} else  if (!email) {
-    errors.email = alert('Email required');
-   } else if (!/\S+@\S+\.\S+/.test(email)) {
-     errors.email = alert('Email address is invalid');
-      }
-      else if (!password) {
-     errors.password = alert('Password is required');
-  } else if (password.length < 8) {
-     errors.password = alert('Password needs to be 8 characters or more');
-  }  else if (!password1) {
-     errors.password1 = alert('Confirm Password is required');
-   } else if (password1 !== password) {
-    errors.password1 = alert('Passwords do not match');
-  }else{
+            if (!firstName.trim()) {
+                errors.firstName = alert('First name is required');
+              } else if (!/^[A-Za-z]+/.test(firstName.trim())) {
+                  errors.firstName = alert('Enter a valid first name');
+              }else if(!lastName.trim()){
+                errors.lastName = alert('Last name is required');
+            } else if (!/^[A-Za-z]+/.test(lastName.trim())) {
+                errors.lastName = alert('Enter a valid last name');
+            }else if(!username.trim()){
+                errors.username = alert('Username is required');
+            } else if (!/^[a-z0-9]+/.test(username.trim())) {
+                errors.username = alert('Username should contain lower case letters with no space and some numbers(Optional)');
+            }else if(!reg.trim()){
+                errors.reg = alert('Registration number is required');
+            }else if (!/^[F16]||[f16]+/.test(reg)) {
+                errors.reg = alert("Your Registration number shows you don't belong to civil engineering department");
+                 }else if(!birthday[0]){
+                errors.birthday = alert('Birth day is required');
+            }else if(!birthday[1]){
+                errors.birthday = alert('Birth month is required');
+            }
+                else if(!birthday[2]){
+                    errors.birthday = alert('Birth year is required');
+            }else if(!year.trim()){
+                errors.year = alert('Year of study is required');
+            } else if (!/^[0-9]+/.test(year.trim())) {
+                errors.year = alert('Enter a valid academic Year');
+            
+            }else if(!member.trim()){
+                errors.member = alert('Membership field is required');
+            } else if (!/^[A-Za-z]+/.test(member.trim())) {
+                errors.member = alert('Enter a valid name');
+            }else if(!cat.trim()){
+                errors.cat = alert('Category is required');
+            } else if (!/^[A-Za-z]+/.test(cat.trim())) {
+                errors.cat = alert('Enter a valid category name');
+            }else if(!gender.trim()){
+                errors.gender = alert('Gender is required');
+            } else if (!/^[A-Za-z]+/.test(gender.trim())) {
+                errors.gender = alert('Enter a valid gender name');
+            } else  if (!email) {
+                errors.email = alert('Email required');
+               }else if (!/\S+@[students]+\.[uonbi]+\.[ac]+\.[ke]+/.test(email)) {
+                errors.email = alert('Student Email address is invalid\nFormat (...@students.uonbi.ac.ke)');
+                 }
+                  else if (!password) {
+                 errors.password = alert('Password is required');
+              } else if (password.length < 8) {
+                 errors.password = alert('Password needs to be 8 characters or more');
+              }  else if (!password1) {
+                 errors.password1 = alert('Confirm Password is required');
+               } else if (password1 !== password) {
+                errors.password1 = alert('Passwords do not match');
+              }else{
+                setLoading(true)
 
-    db.collection('users').where("email", "==", email).get().then((resultSnapShot) => {
-
-        // resultSnapShot is an array of docs where "email" === "user_mail"
-
-        if (resultSnapShot.size == 0) {
-            //Proceed
-
-            auth
-            .createUserWithEmailAndPassword(email, password)
-            .then((auth) => {
-                if (auth.user) {
-                    auth.user.updateProfile({
-                        displayName: firstName + " " + lastName,
-                        photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg"
-                    }).then((s) => {
-                        db.collection('users').doc(auth.user.uid).set({
-                            uid: auth.user.uid,
-                            firstName: firstName,
-                            lastName: lastName,
-                            middleName: middleName,
-                            reg: reg,
-                            email: auth.user.email,
-                            photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg",
-                            birthday,
-                            year:year,
-                            gender,
-                            bio: "",
-                            read: true,
-                            category: cat,
-                            others: others,
-                            post: member,
-                            timestamp: Date.now()
+                db.collection('users').where("email", "==", email).get().then((resultSnapShot) => {
+            
+                    // resultSnapShot is an array of docs where "email" === "user_mail"
+            
+                    if (resultSnapShot.size == 0) {
+                        //Proceed
+            
+                        auth
+                        .createUserWithEmailAndPassword(email, password)
+                        .then((auth) => {
+                            if (auth.user) {
+                                auth.user.updateProfile({
+                                    displayName: firstName + " " + lastName,
+                                    photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg"
+                                }).then((s) => {
+                                    db.collection('users').doc(auth.user.uid).set({
+                                        uid: auth.user.uid,
+                                        firstName: firstName,
+                                        lastName: lastName,
+                                        username: username,
+                                        reg: reg,
+                                        email: auth.user.email,
+                                        photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg",
+                                        birthday,
+                                        year:year,
+                                        gender,
+                                        bio: "",
+                                        read: true,
+                                        category: cat,
+                                        others: others,
+                                        post: member,
+                                        timestamp: Date.now()
+                                    })
+                                        .then((r) => {
+                                            history.push("/")
+                                        })
+                                })
+                            }
                         })
-                            .then((r) => {
-                                history.push("/")
-                            })
-                    })
-                }
-            })
-            .catch((e) => {
-                if (
-                    e.message ===
-                    alert(e.message)
-                ) {
-                    alert("Please check your credentials again");
-                } else if (
-                    e.message ===
-                    alert(e.message)
-                ) {
-                    history.push("/signup");
-                    window.scrollTo({
-                        top: document.body.scrollHeight,
-                        left: 0,
-                        behavior: "smooth",
-                    });
-                }
-            });
-
-        } else {
-            //Already registered
-            alert("The email you enterd already in use")
+                        .catch((e) => {
+                            if (
+                                e.message ===
+                                alert(e.message)
+                            ) {
+                                alert("Please check your credentials again");
+                            } else if (
+                                e.message ===
+                                alert(e.message)
+                            ) {
+                                history.push("/signup");
+                                window.scrollTo({
+                                    top: document.body.scrollHeight,
+                                    left: 0,
+                                    behavior: "smooth",
+                                });
+                            }
+                        });
+            
+                    } else {
+                        //Already registered
+                        alert("The email you enterd already in use")
+                    }
+            
+                })
+                
+                
+              }
+        }catch(error){
+            alert("Error: ",error)
+        }finally{
+            setLoading(false)
         }
 
-    })
-    
-    
-  }
         
     };
 
@@ -164,8 +176,10 @@ function Register() {
             <div  class="container bg-white pb-5">
     <div class="row d-flex justify-content-start align-items-center mt-sm-5">
         <div class="col-lg-5 col-10">
-            {/* <div id="circle"></div> */}
-            <div class="pb-5"> <img  className="img1" src="https://www.studentportal.news/wp-content/uploads/2018/08/UniversityOfNairobi.jpg" alt="" style={{maxHeight: "350px",opacity: "0.7",borderRadius: "50px"}}/> </div>
+            <div id="circle"></div>
+            <Grid item sm={2} xs={2}>
+            <div class="" style={{position: "sticky",top: 0}} > <img  className="img1" src="https://wallpaperaccess.com/full/1615704.jpg" alt="" style={{height: "500px",width:500,opacity:0.4}}/> </div>
+            </Grid>
         </div>
         <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
             <div  class="pt-4">
@@ -179,15 +193,15 @@ function Register() {
                 <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="text">First Name</label> <input  type="text" onChange={(e) => {
                                 setFirstName(e.target.value);
                             }} name="name1" id="emailId" class="border-bottom border-primary" required/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Middle Name</label> <input  onChange={(e) => {
-                                setMiddleName(e.target.value);
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Last Name</label> <input  onChange={(e) => {
+                                setLastName(e.target.value);
                             }} type="text" name="name2" id="pwd" class="border-bottom border-primary" required/> </div>
-                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Last Name</label> <input  type="text" onChange={(e) => {
-                                setLastName(e.target.value)
+                    <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}}  for="text">Username</label> <input  type="text" onChange={(e) => {
+                                setMiddleName(e.target.value)
                             }} name="name3"  id="pwd" class="border-bottom border-primary" required/> </div>
                          
                      <div style={{display: "flex",color: "#3f51b5"}}>
-                    <FormSelect style={{color: "#3f51b5"}}
+                    <FormSelect style={{color: ""}}
                         
                         
              label="Year"
@@ -215,7 +229,7 @@ function Register() {
               required=""             onChange={(e) => setYear(e.target.value)} type="text" 
             />
                         <FormSelect
-                        style={{color: "#3f51b5"}}
+                        style={{color: ""}}
               label="Category"
               
               options={[{
@@ -231,7 +245,7 @@ function Register() {
               }]}              onChange={(e) => setCat(e.target.value)} type="text" 
             />
             <FormSelect
-            style={{color: "#3f51b5"}}
+            style={{color: ""}}
               label="Membership"
               
               options={[{
@@ -302,8 +316,10 @@ function Register() {
                         <select style={{color: "#3f51b5",fontSize:15,fontWeight:"900"}} className="register__date3" onChange={(e) => setBirthday([...birthday, e.target.value])}>
                         
                         <option style={{marginLeft: "0%",color: "#3f51b5",fontSize:15,fontWeight:"500"}} value="year">Year</option>
-                            <option value="2018">2020</option>
-                            <option value="2018">2019</option>
+
+                        <option value="2021">2021</option>
+                            <option value="2020">2020</option>
+                            <option value="2019">2019</option>
                             <option value="2018">2018</option>
                             <option value="2017">2017</option>
                             <option value="2016">2016</option>
@@ -456,9 +472,23 @@ function Register() {
                     <div class="d-flex flex-column pb-3"> <label style={{background: "white",color:"#3f51b5",fontWeight: "600"}} for="password">Other Profession(s)</label> <input  type="text" onChange={(e) => {
                                 setOthers(e.target.value)
                             }} name="passwrd" id="pwd" class="border-bottom border-primary"/> </div>
+                            
                         {/* <div class="ml-auto"> <a href="#" class="text-danger text-decoration-none">Forgot password?</a> </div> */}
-                    </div> <input type="button" onClick={register}
-                            type="submit" value="Sign up" style={{backgroundColor: "#3f51b5"}} class="btn btn-primary btn-block mb-3" /> 
+                    </div>
+                    
+                    <button onClick={register} style={{backgroundColor: "#3f51b5"}} class="btn btn-primary btn-block mb-3">
+                        {loading ?(
+                <CircularProgress style={{color: "white"}}/>
+                        ):(
+                            <span>Sign Up</span>
+
+                        )}            
+
+                    </button>
+
+                                        {/* <CircularProgress /> */}
+
+
                     <div class="register mt-5">
                         <p>Do you have an account? <a style={{color: "#3f51b5"}} href="/login">click here</a></p>
                     </div>
