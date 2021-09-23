@@ -31,15 +31,13 @@ function App() {
             <Route exact path="/">
               <Home user={user}/>
              </Route> 
-             <Route exact path="/home/:uid">
-              <Home user={user}/>
-             </Route> 
+
          <Route exact path="/blog" component={Blog}/>
          <Route exact path="/login">
-              <Login user={user}/>
+              <Login/>
              </Route> 
              <Route exact path="/register">
-              <Register user={user}/>
+              <Register/>
              </Route>    
        </Switch>
      </Router>

@@ -6,7 +6,7 @@ import {useHistory} from 'react-router-dom';
 import Header from './../grid/LoginNavbar'
 
 
-function Login({user}) {
+function Login() {
     const {currentUser} = auth
     const [email, setEmail] = useState('');
     const history = useHistory('');
@@ -17,7 +17,7 @@ function Login({user}) {
 
         auth.signInWithEmailAndPassword(email,password)
         .then((auth) =>{
-          history.push(`/home/${user?.uid}`);
+          history.push(`/`);
         })
         .catch((e) =>{
             if (

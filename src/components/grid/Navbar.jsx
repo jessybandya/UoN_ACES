@@ -137,7 +137,7 @@ useEffect(() => {
           </a>
             )}
               {auth?.currentUser?.uid &&(
-          <a href={`/home/${auth?.currentUser?.uid}`}>
+          <a href={`/`}>
           <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
           </a>
             )}
@@ -149,7 +149,7 @@ useEffect(() => {
           </a>
             )}
               {auth?.currentUser?.uid &&(
-          <a href={`/home/${auth?.currentUser?.uid}`}>
+          <a href={`/`}>
           <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
           </a>
             )}
@@ -167,8 +167,8 @@ useEffect(() => {
             />
             {auth?.currentUser?.uid &&(
               <>
-                                      <a href="/">
-            <div style={{fontWeight: "500",color: "#fff",marginRight:10}}>Feeds</div>
+                                      <a href={`/`}>
+            <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Feeds</div>
             </a>
             <Badge badgeContent={5} color="secondary" className={classes.badge}>
               <Mail />
@@ -178,8 +178,9 @@ useEffect(() => {
             </Badge>
             <Avatar
               alt={`${profileUserData?.username}`}
-              src={profileUserData?.photoURL}
+              src={`${auth?.currentUser?.photoURL}`}
             />
+
               </>
             )}
         {!auth?.currentUser?.uid &&(

@@ -109,8 +109,8 @@ function Register({user}) {
                                     .then((auth) => {
                                         if (auth.user) {
                                             auth.user.updateProfile({
-                                                displayName: firstName + " " + lastName,
-                                                photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg"
+                                                displayName: username,
+                                                photoURL: "www.wuyidoric.com.au/WuYiDoric/media/images/Projects/UniversityOfNairobiTowersProject/UniversityOfNairobiTowersProject_banner.jpg"
                                             }).then((s) => {
                                                 db.collection('users').doc(auth.user.uid).set({
                                                     uid: auth.user.uid,
@@ -119,7 +119,7 @@ function Register({user}) {
                                                     username: username,
                                                     reg: reg,
                                                     email: auth.user.email,
-                                                    photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg",
+                                                    photoURL: "www.wuyidoric.com.au/WuYiDoric/media/images/Projects/UniversityOfNairobiTowersProject/UniversityOfNairobiTowersProject_banner.jpg",
                                                     birthday,
                                                     year:year,
                                                     gender,
