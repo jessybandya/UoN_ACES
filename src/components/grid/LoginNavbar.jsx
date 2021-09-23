@@ -165,36 +165,19 @@ useEffect(() => {
               className={classes.searchButton}
               onClick={() => setOpen(true)}
             />
-            {auth?.currentUser?.uid &&(
-              <>
-                                      <a href="/">
-            <div style={{fontWeight: "500",color: "#fff",marginRight:10}}>Feeds</div>
-            </a>
-            <Badge badgeContent={5} color="secondary" className={classes.badge}>
-              <Mail />
-            </Badge>
-            <Badge badgeContent={200} color="secondary" className={classes.badge}>
-              <Notifications />
-            </Badge>
-            <Avatar
-              alt={`${profileUserData?.username}`}
-              src={profileUserData?.photoURL}
-            />
-              </>
-            )}
-        {!auth?.currentUser?.uid &&(
+
           <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
-                        <a href="/">
+          <a href="/">
             <div style={{fontWeight: "500",color: "#fff"}}>Feeds</div>
             </a>
             <a href="/register">
-            <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Register</div>
+            <div style={{fontWeight: "500",color: "#fff",marginLeft:10}}>Register</div>
             </a>
             <a href="/login">
-            <div style={{fontWeight: "500",marginLeft:10,marginRight:0,color: "#fff"}}>Login</div>
+            <div style={{fontWeight: "500",marginLeft:10,color: "#fff"}}>Login</div>
             </a>
           </div>
-        )}
+      
           </div>
         </Toolbar>
       </AppBar>

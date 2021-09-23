@@ -3,10 +3,10 @@ import React, {useState} from 'react';
 import './styles.css';
 import {auth} from './../firebase';
 import {useHistory} from 'react-router-dom';
-import Header from './../grid/Navbar'
+import Header from './../grid/LoginNavbar'
 
 
-function Login() {
+function Login({user}) {
     const {currentUser} = auth
     const [email, setEmail] = useState('');
     const history = useHistory('');
@@ -17,7 +17,7 @@ function Login() {
 
         auth.signInWithEmailAndPassword(email,password)
         .then((auth) =>{
-          history.push(`/`); 
+          history.push(`/home/${user?.uid}`);
         })
         .catch((e) =>{
             if (
@@ -31,7 +31,7 @@ function Login() {
                 e.message ===
                 alert(e.message)
             ) {
-                history.push("/signup");
+                history.push("/register");
                 window.scrollTo({
                     top: document.body.scrollHeight,
                     left: 0,

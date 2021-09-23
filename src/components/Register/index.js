@@ -1,5 +1,5 @@
 import React, {useState,useEffect} from 'react'
-import Header from "../grid/Navbar";
+import Header from "../grid/LoginNavbar";
 import "./styles.css"
 import {auth,db} from './../firebase';
 import { useHistory, Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
-function Register() {
+function Register({user}) {
 
     const history = useHistory("");
     const [firstName, setFirstName] = useState("");
@@ -29,14 +29,12 @@ function Register() {
    
 
     const register = (event) => {
-        setLoading(true)
         event.preventDefault();
         // if (birthday[2] >= 2010) {
         //     return alert("You are not eligible to register to Facebook!")
         // }
         let errors = {};
 
-        try{
 
             if (!firstName.trim()) {
                 errors.firstName = alert('First name is required');
@@ -92,80 +90,87 @@ function Register() {
                } else if (password1 !== password) {
                 errors.password1 = alert('Passwords do not match');
               }else{
-                setLoading(true)
 
-                db.collection('users').where("email", "==", email).get().then((resultSnapShot) => {
+                db.collection('users').where("username", "==", username).get().then(
+                    snap => {
+                        if(snap.docs.length > 0){
+                            alert("The username you entered is taken!")
+                        }else{
+
+                            db.collection('users').where("email", "==", email).get().then((resultSnapShot) => {
             
-                    // resultSnapShot is an array of docs where "email" === "user_mail"
-            
-                    if (resultSnapShot.size == 0) {
-                        //Proceed
-            
-                        auth
-                        .createUserWithEmailAndPassword(email, password)
-                        .then((auth) => {
-                            if (auth.user) {
-                                auth.user.updateProfile({
-                                    displayName: firstName + " " + lastName,
-                                    photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg"
-                                }).then((s) => {
-                                    db.collection('users').doc(auth.user.uid).set({
-                                        uid: auth.user.uid,
-                                        firstName: firstName,
-                                        lastName: lastName,
-                                        username: username,
-                                        reg: reg,
-                                        email: auth.user.email,
-                                        photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg",
-                                        birthday,
-                                        year:year,
-                                        gender,
-                                        bio: "",
-                                        read: true,
-                                        category: cat,
-                                        others: others,
-                                        post: member,
-                                        timestamp: Date.now()
+                                // resultSnapShot is an array of docs where "email" === "user_mail"
+                        
+                                if (resultSnapShot.size == 0) {
+                                    //Proceed
+                        
+                                    auth
+                                    .createUserWithEmailAndPassword(email, password)
+                                    .then((auth) => {
+                                        if (auth.user) {
+                                            auth.user.updateProfile({
+                                                displayName: firstName + " " + lastName,
+                                                photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg"
+                                            }).then((s) => {
+                                                db.collection('users').doc(auth.user.uid).set({
+                                                    uid: auth.user.uid,
+                                                    firstName: firstName,
+                                                    lastName: lastName,
+                                                    username: username,
+                                                    reg: reg,
+                                                    email: auth.user.email,
+                                                    photoURL: "https://user-images.githubusercontent.com/11250/39013954-f5091c3a-43e6-11e8-9cac-37cf8e8c8e4e.jpg",
+                                                    birthday,
+                                                    year:year,
+                                                    gender,
+                                                    bio: "",
+                                                    read: true,
+                                                    category: cat,
+                                                    others: others,
+                                                    post: member,
+                                                    timestamp: Date.now()
+                                                })
+                                                    .then((r) => {
+                                                        alert("Succesfully created an account.")
+                                                        history.push(`/login`)
+                                                    })
+                                            })
+                                        }
                                     })
-                                        .then((r) => {
-                                            history.push("/")
-                                        })
-                                })
-                            }
-                        })
-                        .catch((e) => {
-                            if (
-                                e.message ===
-                                alert(e.message)
-                            ) {
-                                alert("Please check your credentials again");
-                            } else if (
-                                e.message ===
-                                alert(e.message)
-                            ) {
-                                history.push("/signup");
-                                window.scrollTo({
-                                    top: document.body.scrollHeight,
-                                    left: 0,
-                                    behavior: "smooth",
-                                });
-                            }
-                        });
-            
-                    } else {
-                        //Already registered
-                        alert("The email you enterd already in use")
+                                    .catch((e) => {
+                                        if (
+                                            e.message ===
+                                            alert(e.message)
+                                        ) {
+                                            alert("Please check your credentials again");
+                                        } else if (
+                                            e.message ===
+                                            alert(e.message)
+                                        ) {
+                                            history.push("/register");
+                                            window.scrollTo({
+                                                top: document.body.scrollHeight,
+                                                left: 0,
+                                                behavior: "smooth",
+                                            });
+                                        }
+                                    });
+                        
+                                } else {
+                                    //Already registered
+                                    alert("The email you enterd already in use")
+                                }
+                        
+                            })
+                        }
                     }
-            
-                })
+                )
+                
+
                 
                 
               }
-        }catch(error){
-            alert("Error: ",error)
-        }finally{
-            setLoading(false)
-        }
+
 
         
     };

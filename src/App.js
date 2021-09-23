@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import Blog from './components/Blog';
+import Navbar from './components/grid/Navbar';
 
 function App() {
   const [user, setUser] = useState([]);
@@ -27,16 +28,19 @@ function App() {
      <Router>
        <Switch>
 
-
-            
+            <Route exact path="/">
+              <Home user={user}/>
+             </Route> 
+             <Route exact path="/home/:uid">
+              <Home user={user}/>
+             </Route> 
          <Route exact path="/blog" component={Blog}/>
-         <Route exact path="/login" component={Login}/>
-         <Route exact path="/register" component={Register}/>
-         <Route exact path="/"
-            render={ () => !auth.currentUser ? <Redirect to="/login" /> :(
-              <Home user={user}/>   
-                 
-           )}/> 
+         <Route exact path="/login">
+              <Login user={user}/>
+             </Route> 
+             <Route exact path="/register">
+              <Register user={user}/>
+             </Route>    
        </Switch>
      </Router>
     </div>
