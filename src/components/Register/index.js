@@ -132,7 +132,7 @@ function Register({user}) {
                                                 })
                                                     .then((r) => {
                                                         alert("Succesfully created an account.")
-                                                        history.push(`/login`)
+                                                        history.push(`/`)
                                                     })
                                             })
                                         }
