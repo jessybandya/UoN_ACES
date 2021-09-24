@@ -12,6 +12,8 @@ import Login from './components/Login';
 import Blog from './components/Blog';
 import Navbar from './components/grid/Navbar';
 
+
+
 function App() {
   const [user, setUser] = useState([]);
   useEffect(() => {
@@ -33,6 +35,7 @@ function App() {
              </Route> 
 
          <Route exact path="/blog" component={Blog}/>
+
          <Route exact path="/login">
               <Login/>
              </Route> 
