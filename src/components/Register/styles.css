@@ -4,7 +4,7 @@ input {
   outline: none
 }
 
-.container {
+.container1 {
   border-radius: 15px;
 
 }
@@ -27,7 +27,7 @@ input {
       top: -25px
   }
 
-  .container {
+  .container1 {
       background-image: linear-gradient(to bottom, rgb(255, 255, 255) 80%, rgb(242, 242, 253), rgb(164, 164, 235))
   }
 }
@@ -49,8 +49,8 @@ input {
 @media(max-width:567px) {
  
 
-  .container {
-      margin-left: 0px;
+  .container1 {
+      margin: 10px;
       margin-top: 30px
   }
 

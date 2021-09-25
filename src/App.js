@@ -9,7 +9,7 @@ import {auth} from "./components/firebase"
 import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
-import Blog from './components/Blog';
+import Blog from './components/Blog1';
 import Navbar from './components/grid/Navbar';
 
 
@@ -31,10 +31,10 @@ function App() {
        <Switch>
 
             <Route exact path="/">
-              <Home user={user}/>
+              <Blog user={user}/>
              </Route> 
 
-         <Route exact path="/blog" component={Blog}/>
+         <Route exact path="/home" component={Home}/>
 
          <Route exact path="/login">
               <Login/>

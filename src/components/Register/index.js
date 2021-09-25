@@ -178,19 +178,17 @@ function Register({user}) {
     return (
         <div>
             <Header />
-            <div  class="container bg-white pb-5">
+            <div  class="container1 bg-white pb-5">
     <div class="row d-flex justify-content-start align-items-center mt-sm-5">
         <div class="col-lg-5 col-10">
             <div id="circle"></div>
-            <Grid item sm={2} xs={2}>
-            <div class="" style={{position: "sticky",top: 0}} > <img  className="img1" src="https://wallpaperaccess.com/full/1615704.jpg" alt="" style={{height: "500px",width:500,opacity:0.4}}/> </div>
-            </Grid>
+            <div class=""  > <img  className="img1" src="https://wallpaperaccess.com/full/1615704.jpg" alt="" style={{height: "500px",width:500,opacity:0.4}}/> </div>
         </div>
         <div class="col-lg-4 offset-lg-2 col-md-6 offset-md-3">
             <div  class="pt-4">
                 {/* <h6 style={{color: "lightblue"}}><span class="fa fa-superpowers text-primary px-md-2"></span>University Of nairobi</h6> */}
             </div>
-            <div style={{border: "1px solid #3f51b5",padding:10,borderRadius:10}}  class="mt-3 mt-md-5">
+            <div style={{border: "1px solid #3f51b5",padding:10,borderRadius:10,marginTop:10}}  class="mt-3 mt-md-5">
                 
                 <h5 style={{color: "#3f51b5"}}>Create an Account</h5>
                 <hr />

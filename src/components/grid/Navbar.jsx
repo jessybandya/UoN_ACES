@@ -105,7 +105,6 @@ import {
 
     return number;
 }
-const {uid} = useParams([]);
 const [user, setUser] = useState([]);
 useEffect(() => {
   auth.onAuthStateChanged((authUser) =>{
@@ -122,11 +121,7 @@ useEffect(() => {
     const [profileUserData, setProfileUserData] = useState();
 
 
-    useEffect(() => {
-      db.collection('users').doc(uid).onSnapshot((doc) => {
-          setProfileUserData(doc.data());
-      });
-  }, [])
+
     return (
       <AppBar position="fixed">
         <Toolbar className={classes.toolbar}>
@@ -167,7 +162,7 @@ useEffect(() => {
             />
             {auth?.currentUser?.uid &&(
               <>
-                                      <a href={`/`}>
+                                      <a href={`/home`}>
             <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Feeds</div>
             </a>
             <Badge badgeContent={5} color="secondary" className={classes.badge}>
@@ -185,7 +180,7 @@ useEffect(() => {
             )}
         {!auth?.currentUser?.uid &&(
           <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
-                        <a href="/">
+                        <a href="/home">
             <div style={{fontWeight: "500",color: "#fff"}}>Feeds</div>
             </a>
             <a href="/register">

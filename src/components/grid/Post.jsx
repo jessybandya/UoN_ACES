@@ -64,7 +64,7 @@ import {
            <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>share</div><ShareOutlinedIcon style={{color: "#3f51b5"}}/></div>
          </div>
         </>
-        <CardContent>
+        {/* <CardContent>
           <div style={{display:"flex",border:"1px solid #808080",height:80,padding:8,borderRadius:10}}>
              <div>
              <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>
@@ -75,7 +75,7 @@ import {
 
              </div>
           </div>
-        </CardContent>
+        </CardContent> */}
       </Card>
     );
   };

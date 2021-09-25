@@ -137,7 +137,7 @@ useEffect(() => {
           </a>
             )}
               {auth?.currentUser?.uid &&(
-          <a href={`/home/${auth?.currentUser?.uid}`}>
+          <a href={`/`}>
           <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
           </a>
             )}
@@ -149,7 +149,7 @@ useEffect(() => {
           </a>
             )}
               {auth?.currentUser?.uid &&(
-          <a href={`/home/${auth?.currentUser?.uid}`}>
+          <a href={`/`}>
           <div style={{fontWeight: "500",color: "#fff"}}>UoN_ACES</div>
           </a>
             )}
@@ -167,7 +167,7 @@ useEffect(() => {
             />
 
           <div style={{display: "flex",justifyContent: "space-between",width: 150}}>
-          <a href="/">
+          <a href="/home">
             <div style={{fontWeight: "500",color: "#fff"}}>Feeds</div>
             </a>
             <a href="/register">
