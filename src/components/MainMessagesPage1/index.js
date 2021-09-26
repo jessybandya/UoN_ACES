@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Add from "../grid/Add";
-import Feed from "../Postview";
+import Feed from "../MainMessagesPage";
 import Leftbar from "../grid/Leftbar";
 import Navbar from "../grid/Navbar";
 import Rightbar from "../grid/Rightbar";
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Postview1 = ({user}) => {
+const MainMessagesPage1 = ({user}) => {
   const history = useHistory("")
   const classes = useStyles();
 
@@ -34,6 +34,7 @@ const Postview1 = ({user}) => {
           <Rightbar />
         </Grid>
       </Grid>
+      <Add />
        </>
       )}
       {!auth?.currentUser?.uid &&(
@@ -58,4 +59,4 @@ const Postview1 = ({user}) => {
   );
 };
 
-export default Postview1;
+export default MainMessagesPage1;

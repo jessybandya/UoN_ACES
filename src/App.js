@@ -12,7 +12,7 @@ import Login from './components/Login';
 import Blog from './components/Blog1';
 import Postview from './components/Postview1';
 import Navbar from './components/grid/Navbar';
-
+import MainMessagesPage1 from './components/MainMessagesPage1';
 
 
 function App() {
@@ -35,7 +35,11 @@ function App() {
               <Blog user={user}/>
              </Route> 
 
-         
+             <Route exact path="/mainmessagespage">
+              <MainMessagesPage1 user={user}/>
+             </Route> 
+
+
          <Route exact path="/home">
               <Home user={user}/>
              </Route> 

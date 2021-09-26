@@ -165,9 +165,13 @@ useEffect(() => {
                                       <a href={`/home`}>
             <div style={{fontWeight: "600",color: "#fff",marginRight:10}}>Feeds</div>
             </a>
+            <a href={`/mainmessagespage`}>
             <Badge badgeContent={5} color="secondary" className={classes.badge}>
-              <Mail />
+              
+              <Mail style={{color: "#fff"}}/>
+             
             </Badge>
+            </a>
             <Badge badgeContent={200} color="secondary" className={classes.badge}>
               <Notifications />
             </Badge>

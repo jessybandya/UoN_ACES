@@ -91,7 +91,7 @@ import "./styles.css"
       <CardContent>
 
       </CardContent>
-      <CardActions disableSpacing style={{alignItems: "center",border: "1px solid #AEAEAE",borderTopLeftRadius:10,borderTopRightRadius:10}}>
+      <CardActions disableSpacing style={{alignItems: "center",border: "1px solid #AEAEAE",borderTopLeftRadius:5,borderTopRightRadius:5}}>
       <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
            <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>4,508</div><ThumbUpAltOutlinedIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
            <div style={{alignItems:"center"}}><div style={{fontWeight:"600"}}>10,678</div>        
@@ -123,7 +123,7 @@ import "./styles.css"
           </Typography>
         </CardContent>
       </Collapse>
-      <div style={{display:"flex",maxWidth:"100%",marginTop:10,alignItems:"center",justifyContent:"space-between"}}>
+      <div style={{display:"flex",marginTop:10,alignItems:"center",justifyContent:"space-between"}}>
           <div>
           <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>    
           </div>
@@ -133,12 +133,12 @@ import "./styles.css"
                   rows={2}
                   placeholder="@jessybandya comment here"
                   size="small"
-                  style={{ width: 250 }}
+                  style={{ width: 200 }}
                 /></div>
                 <div><SendIcon style={{color: "#3f51b5",cursor:"pointer"}}/></div>
       </div>
       <Collapse in={comments} timeout="auto" unmountOnExit>
-        <CardContent>
+        <CardContent style={{marginTop:20}}>
         <Typography paragraph style={{fontWeight:"600"}}>Comments</Typography>
          <hr/>
 
@@ -149,12 +149,22 @@ import "./styles.css"
               <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>
               <div style={{marginLeft:10}}>
               <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>Nice post!!</div>
+              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
+              <Typography paragraph>
+            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
+            large plate and set aside, leaving chicken and chorizo in the pan. Add
+            pimentón, bay leaves, garlic, tomatoes, onion, salt and pepper, and cook,
+            stirring often until thickened and fragrant, about 10 minutes. Add
+            saffron broth and remaining 4 1/2 cups chicken broth; bring to a boil.
+          </Typography>
+              </div>
               <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
 
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:3}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:3,marginBottom:10}}>10K</span></div>
+              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
+           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
+           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
          </div>
             </div>
             </div>
@@ -170,12 +180,19 @@ import "./styles.css"
               <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>
               <div style={{marginLeft:10}}>
               <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>Nice post!!</div>
+              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
+              <Typography paragraph>
+            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
+
+          </Typography>
+              </div>
               <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
 
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:3}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:3,marginBottom:10}}>10K</span></div>
+              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
+           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
+           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
          </div>
             </div>
             </div>
@@ -192,12 +209,19 @@ import "./styles.css"
               <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>
               <div style={{marginLeft:10}}>
               <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>Nice post!!</div>
+              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
+              <Typography paragraph>
+            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+            medium-high heat. Add chicken, shrimp and chorizo, and cook, stirring
+            occasionally until lightly browned, 6 to 8 minutes. Transfer shrimp to a
+
+          </Typography>
+              </div>
               <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
 
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:3}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:3,marginBottom:10}}>10K</span></div>
+              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
+           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
+           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
          </div>
             </div>
             </div>
@@ -213,12 +237,16 @@ import "./styles.css"
               <Avatar src="https://ict.uonbi.ac.ke/sites/ict.uonbi.ac.ke/files/2020-06/UniversityOfNairobiTowersProject_banner.jpg" alt="Jessy Bandya"/>
               <div style={{marginLeft:10}}>
               <div style={{fontWeight:"600"}}>Jessy Bandya <span style={{fontWeight:"100",color:"#AEAEAE"}}>@jessybandya</span></div>
-              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>Nice post!!</div>
+              <div style={{fontWeight:"600",color:"#808080",marginTop:5,fontSize:13,marginLeft:10}}>
+              <Typography paragraph>
+            Heat oil in a (14- to 16-inch) paella pan or a large, deep skillet over
+   
+          </Typography>
+              </div>
               <div style={{fontWeight:"400",color:"#696969",marginBottom:-15,marginTop:15,fontSize:13,marginLeft:10}}>30 mins ago</div>
-
-              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:"100%"}}>
-           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:3}}>4.5K</span></div>
-           <div style={{alignItems:"center",display:"flex",marginTop:10}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:3,marginBottom:10}}>10K</span></div>
+              <div style={{display:"flex",justifyContent:"space-between",padding:8,width:100}}>
+           <div style={{alignItems:"center",display:"flex"}}><ThumbUpAltOutlinedIcon style={{color: "#3f51b5"}}/><span style={{fontWeight:"500",marginLeft:0}}>4.5K</span></div>
+           <div style={{alignItems:"center",display:"flex",marginTop:10,marginLeft:15}}><a href={`#`}><ChatBubbleOutlineOutlinedIcon style={{color: "#3f51b5"}}/></a><span style={{fontWeight:"500",marginLeft:0,marginBottom:10}}>10K</span></div>
          </div>
             </div>
             </div>
