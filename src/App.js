@@ -10,6 +10,7 @@ import Home from './components/Home';
 import Register from './components/Register';
 import Login from './components/Login';
 import Blog from './components/Blog1';
+import Postview from './components/Postview1';
 import Navbar from './components/grid/Navbar';
 
 
@@ -34,8 +35,13 @@ function App() {
               <Blog user={user}/>
              </Route> 
 
-         <Route exact path="/home" component={Home}/>
-
+         
+         <Route exact path="/home">
+              <Home user={user}/>
+             </Route> 
+             <Route exact path="/postview">
+              <Postview user={user}/>
+             </Route> 
          <Route exact path="/login">
               <Login/>
              </Route> 

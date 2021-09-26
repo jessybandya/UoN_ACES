@@ -14,7 +14,7 @@ import {
 import { useState,useEffect } from "react";
 import { db,auth } from "../firebase"
 import { useHistory } from "react-router";
-
+import "./styles.css"
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -73,45 +73,45 @@ const logout = () => {
 }
   return (
     <Container className={classes.container}>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
       {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
         <Home className={classes.icon} />
         {/* </Badge> */}
         <Typography className={classes.text}>Homepage</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Person className={classes.icon} />
         <Typography className={classes.text}>Friends</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <List className={classes.icon} />
         <Typography className={classes.text}>Lists</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PhotoCamera className={classes.icon} />
         <Typography className={classes.text}>Camera</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <PlayCircleOutline className={classes.icon} />
         <Typography className={classes.text}>Videos</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <TabletMac className={classes.icon} />
         <Typography className={classes.text}>Apps</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Bookmark className={classes.icon} />
         <Typography className={classes.text}>Collections</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Storefront className={classes.icon} />
         <Typography className={classes.text}>Market Place</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <Settings className={classes.icon} />
         <Typography className={classes.text}>Settings</Typography>
       </div>
-      <div className={classes.item}>
+      <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <ExitToApp onClick={logout} className={classes.icon} />
         <Typography onClick={logout} className={classes.text}>Logout</Typography>
       </div>

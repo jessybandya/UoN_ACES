@@ -79,7 +79,7 @@ function Blog() {
     <section class="section-2 container-fluid p-0">
       <div class="cover">
         <div class="overlay"></div>
-        <div class="content text-center">
+        <div class="content1 text-center">
           <h1>Some Features That Made Us Unique</h1>
           <p>
             Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae, eum?
