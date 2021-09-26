@@ -19,7 +19,7 @@ import {
 function Posts() {
     return (
         <>
-        
+        <a href={`/messages`}>
         <div style={{display:"flex",marginTop:15,width:"100%"}}>
             <div>
             <div style={{height:10,width:10,borderRadius:10/2,backgroundColor:"#00FF00"}}>
@@ -42,7 +42,7 @@ function Posts() {
 
             </div>
         </div>
-
+        </a>
         </>
     )
 }

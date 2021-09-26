@@ -13,6 +13,7 @@ import Blog from './components/Blog1';
 import Postview from './components/Postview1';
 import Navbar from './components/grid/Navbar';
 import MainMessagesPage1 from './components/MainMessagesPage1';
+import ChatDm from './components/ChatDm1';
 
 
 function App() {
@@ -34,7 +35,9 @@ function App() {
             <Route exact path="/">
               <Blog user={user}/>
              </Route> 
-
+             <Route exact path="/messages">
+              <ChatDm user={user}/>
+             </Route> 
              <Route exact path="/mainmessagespage">
               <MainMessagesPage1 user={user}/>
              </Route> 
