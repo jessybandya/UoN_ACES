@@ -20,7 +20,7 @@ function Posts() {
     return (
         <>
         
-        <div style={{display:"flex",marginTop:15,width:"100%"}}>
+        <div style={{display:"flex",marginTop:15,flex:1}}>
             <div>
 
             <Avatar
