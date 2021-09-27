@@ -14,6 +14,10 @@ import Postview from './components/Postview1';
 import Navbar from './components/grid/Navbar';
 import MainMessagesPage1 from './components/MainMessagesPage1';
 import ChatDm from './components/ChatDm1';
+import Notificationspage from './components/Notificationspage1';
+import Profileview from './components/Profileview1';
+import Profileedit from './components/Profileedit1';
+import Addpost from './components/Addpost1';
 
 
 function App() {
@@ -35,6 +39,23 @@ function App() {
             <Route exact path="/">
               <Blog user={user}/>
              </Route> 
+
+             
+            <Route exact path="/addpost">
+              <Addpost user={user}/>
+             </Route> 
+
+             <Route exact path="/profileedit">
+              <Profileedit user={user}/>
+             </Route> 
+
+             <Route exact path="/profileview">
+              <Profileview user={user}/>
+             </Route> 
+             <Route exact path="/notifications">
+              <Notificationspage user={user}/>
+             </Route> 
+
              <Route exact path="/messages">
               <ChatDm user={user}/>
              </Route> 

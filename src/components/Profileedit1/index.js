@@ -1,6 +1,6 @@
 import { Grid, makeStyles } from "@material-ui/core";
 import Add from "../grid/Add";
-import Feed from "../Blog";
+import Feed from "../Profileedit";
 import Leftbar from "../grid/Leftbar";
 import Navbar from "../grid/Navbar";
 import Rightbar from "../grid/Rightbar";
@@ -14,7 +14,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const Blog1 = ({user}) => {
+const Profileedit1 = ({user}) => {
   const history = useHistory("")
   const classes = useStyles();
 
@@ -58,4 +58,4 @@ const Blog1 = ({user}) => {
   );
 };
 
-export default Blog1;
+export default Profileedit1;

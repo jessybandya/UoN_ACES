@@ -172,14 +172,17 @@ useEffect(() => {
              
             </Badge>
             </a>
-            <Badge badgeContent={200} color="secondary" className={classes.badge}>
-              <Notifications />
+            <a href={`/notifications`}>
+            <Badge badgeContent={2} color="secondary" className={classes.badge}>
+              <Notifications style={{color: "#fff"}} />
             </Badge>
+            </a>
+            <a href={`/profileview`}>
             <Avatar
               alt={`${profileUserData?.username}`}
               src={`${auth?.currentUser?.photoURL}`}
             />
-
+            </a>
               </>
             )}
         {!auth?.currentUser?.uid &&(

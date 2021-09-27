@@ -34,7 +34,6 @@ const MainMessagesPage1 = ({user}) => {
           <Rightbar />
         </Grid>
       </Grid>
-      <Add />
        </>
       )}
       {!auth?.currentUser?.uid &&(

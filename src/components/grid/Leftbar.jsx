@@ -15,6 +15,9 @@ import { useState,useEffect } from "react";
 import { db,auth } from "../firebase"
 import { useHistory } from "react-router";
 import "./styles.css"
+import PostAddIcon from '@mui/icons-material/PostAdd';
+import { Link } from "react-router-dom";
+
 
 const useStyles = makeStyles((theme) => ({
   container: {
@@ -108,8 +111,10 @@ const logout = () => {
         <Typography className={classes.text}>Market Place</Typography>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
-        <Settings className={classes.icon} />
-        <Typography className={classes.text}>Settings</Typography>
+        <a style={{display: "flex",color: "none"}} className="port" href={`/addpost`}>
+        <PostAddIcon className={classes.icon} />
+        <Typography className={classes.text}>Add Post</Typography>
+        </a>
       </div>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
         <ExitToApp onClick={logout} className={classes.icon} />

@@ -34,7 +34,6 @@ const Home = ({user}) => {
           <Rightbar />
         </Grid>
       </Grid>
-      <Add />
        </>
       )}
       {!auth?.currentUser?.uid &&(
