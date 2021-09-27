@@ -2,7 +2,9 @@ import React, { useState, useEffect, useRef } from 'react'
 import { db, auth } from '../../firebase'
 import SendMessage from '../../ChatDm'
 import SignOut from '../../grid/Navbar'
-import "../styles.css"
+import "./styles.css"
+import { Avatar } from '@material-ui/core'
+import MoreVertIcon from '@mui/icons-material/MoreVert';
 function Messages({message, fromId, toId, timestamp, user}) {
 
     const parseTimestamp = (timestamp) => {
@@ -17,22 +19,24 @@ function Messages({message, fromId, toId, timestamp, user}) {
 
 
     return (
-        <div>
-        <div  >
+        <div >
+        <div  style={{marginTop:130,marginBottom:70}}>
+			
         <div   class="card-body height3">
         			<ul   class="chat-list">
-						{fromId !== user?.uid  &&(
+						{fromId === user?.uid  &&(
                         <li class="in">
 																	<>
 
 						<div class="chat-img">
-							<img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/>
+							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
+							<Avatar src="http://c.files.bbci.co.uk/C870/production/_112921315_gettyimages-876284806.jpg" alt=""/>
 						</div>
 						<div class="chat-body">
 							<div class="chat-message">
-                                 <h5>Jaby1</h5>
-								 <p>{message}</p>
-								 <p>{parseTimestamp(timestamp)}</p>
+                                 <div style={{marginBottom:5,fontWeight:"700"}}>@jessybandya</div>
+								 <div>Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz. Hello here guys I have a suggestion to help me out plz</div>
+								 <div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
 							</div>
 						</div>
 						</>
@@ -42,13 +46,17 @@ function Messages({message, fromId, toId, timestamp, user}) {
         				{fromId == user?.uid  &&(
                         <li class="out">
 						<div class="chat-img">
-							<img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/>
+							{/* <img class="card-img-top navbar-brand user_img  rounded-circle" alt="Avtar" src="" style={{objectFit: "cover"}}/> */}
+							<Avatar src="" alt=""/>
 						</div>
 						<div  class="chat-body">
-							<div  class="chat-message">
-								<h5>Me</h5>
-								<p>{message}</p>
-								<p>{parseTimestamp(timestamp)}</p>
+							<div  class="chat-message1">
+							<div style={{justifyContent:"space-between"}}>
+								<div style={{marginBottom:5,fontWeight:"700"}}></div>
+								<div><MoreVertIcon/></div>								
+								</div>
+								<div>Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good. Hello Bro man hope you peple are out here feeling good</div>
+								<div style={{marginTop:10,color: "#C5C5C5"}}>{parseTimestamp(timestamp)}</div>
 							</div>
 						</div>
 					</li>

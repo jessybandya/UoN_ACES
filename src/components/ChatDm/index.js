@@ -119,7 +119,7 @@ function ChatDm({ user }) {
     return (
         <div>
 
-<div style={{marginTop:75}} className="content__header">
+<div style={{marginTop:50}} className="fixed-header">
           <div className="blocks">
             <div className="current-chatting-user">
                 
@@ -134,15 +134,9 @@ function ChatDm({ user }) {
             </div>
           </div>
 
-          <div className="blocks">
-            <div className="settings">
-              <button className="btn-nobg">
-                <i className="fa fa-cog"></i>
-              </button>
-            </div>
-          </div>
         </div>
 
+<Messages />
 {posts1.map((post) => {
                         
 

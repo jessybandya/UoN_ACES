@@ -72,8 +72,8 @@
       padding: 10px 10px 0 10px;
     }
     img {
-      height: 35px;
-      margin-top: -10px;
+      /* height: 35px;
+      margin-top: -10px; */
     }
   }
   
@@ -88,8 +88,8 @@
       padding: 7px 7px 0 7px;
     }
     img {
-      height: 30px;
-      margin-top: -7px;
+      /* height: 30px;
+      margin-top: -7px; */
     }
   }
   
@@ -101,10 +101,10 @@
     max-width: 63%;
     border-right: 1px solid #ebe7fb;
   }
-  .content__header {
+  /* .content__header {
     padding-bottom: 15px;
     border-bottom: 1px solid #ebe7fb;
-  }
+  } */
   .current-chatting-user {
     display: flex;
     align-items: center;
@@ -113,11 +113,11 @@
     margin: 0;
     font-weight: 600;
   }
-  .content__header {
+  /* .content__header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-  }
+  } */
   .settings .btn-nobg {
     color: #000;
   }
@@ -247,3 +247,15 @@
     color: #fff;
   }
   
+
+  .fixed-header, .fixed-footer{
+    width: 100%;
+    position: fixed;        
+    background: rgb(252, 240, 240);
+    color: #000;
+    height: 80px;
+    padding: 20px;
+    top: 0;
+    z-index: 2;
+    border: "1px solid #000";
+}
