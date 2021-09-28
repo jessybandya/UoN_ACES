@@ -8,6 +8,8 @@ import FormInput from './../forms/Forminput';
 import { Grid, makeStyles } from "@material-ui/core";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
+import Alert from '@mui/material/Alert';
+
 
 function Register() {
     const history = useHistory("");
@@ -186,7 +188,7 @@ function Register() {
                         <p>Fill all form field to go to next step</p>
                         <div  class="row">
                             <div  class="col-md-12 mx-0">
-                                <form  id="msform">
+                                <div  id="msform">
                                     <ul id="progressbar">
                                         <li class="active" id="account"><strong>Step</strong></li>
                                         <li id="personal"><strong>Step</strong></li>
@@ -514,10 +516,12 @@ function Register() {
 
                                         </div> 
                                         <input type="button" name="previous" class="previous action-button-previous" value="Previous" /> 
-                                        <input type="button" name="make_payment" style={{backgroundColor: "#3f51b5"}} class="next action-button" onClick={register} value="Submit" />
+                                        <button  style={{backgroundColor: "#3f51b5",width:100,height:45,border:"none",color:"#fff",cursor:"pointer"}}  onClick={register}>
+                                            Submit
+                                        </button>
                                     </fieldset>
 
-                                </form>
+                                </div>
                             </div>
                         </div>
                     </div>
