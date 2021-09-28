@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useRef} from 'react'
 import { db, auth } from '../firebase'
 import firebase from 'firebase'
 import { Input, Button } from '@material-ui/core'
@@ -7,7 +7,7 @@ import Messages from "../ChatDm/Messages"
 // import Header from './../Header';
 import {useParams,Link} from 'react-router-dom'
 import {Avatar, Badge, TextField} from '@material-ui/core';
-
+import ScrollableFeed from 'react-scrollable-feed'
 
 function ChatDm({ user }) {
     const [post, setPost] = useState(null)
@@ -17,6 +17,21 @@ function ChatDm({ user }) {
     const [fromUser, setFromUser]= useState([]);
     const [profileUserData, setProfileUserData] = useState();
 
+
+    
+	const messageRef = useRef();
+
+
+  useEffect(() => {
+      if (messageRef.current) {
+        messageRef.current.scrollIntoView(
+          {
+            behavior: 'smooth',
+            block: 'end',
+            inline: 'nearest'
+          })
+      }
+    })
 
     const [ text , setText] = useState("");
 
@@ -117,7 +132,7 @@ function ChatDm({ user }) {
 
 
     return (
-        <div>
+        <div ref={messageRef}>
 
 <div style={{marginTop:50}} className="fixed-header">
           <div className="blocks">
@@ -135,8 +150,9 @@ function ChatDm({ user }) {
           </div>
 
         </div>
-
+<ScrollableFeed>
 <Messages />
+</ScrollableFeed>
 {posts1.map((post) => {
                         
 

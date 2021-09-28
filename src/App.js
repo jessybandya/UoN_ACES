@@ -18,6 +18,9 @@ import Notificationspage from './components/Notificationspage1';
 import Profileview from './components/Profileview1';
 import Profileedit from './components/Profileedit1';
 import Addpost from './components/Addpost1';
+import Test from './components/Test';
+
+
 
 
 function App() {
@@ -39,6 +42,8 @@ function App() {
             <Route exact path="/">
               <Blog user={user}/>
              </Route> 
+ 
+            <Route exact path="/test" component={Test} />
 
              
             <Route exact path="/addpost">

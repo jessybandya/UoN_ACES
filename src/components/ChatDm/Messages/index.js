@@ -7,6 +7,19 @@ import { Avatar } from '@material-ui/core'
 import MoreVertIcon from '@mui/icons-material/MoreVert';
 function Messages({message, fromId, toId, timestamp, user}) {
 
+	const messageRef = useRef();
+
+
+useEffect(() => {
+    if (messageRef.current) {
+      messageRef.current.scrollIntoView(
+        {
+          behavior: 'smooth',
+          block: 'end',
+          inline: 'nearest'
+        })
+    }
+  })
     const parseTimestamp = (timestamp) => {
         try {
             let date = new Date(timestamp)
@@ -22,7 +35,7 @@ function Messages({message, fromId, toId, timestamp, user}) {
         <div >
         <div  style={{marginTop:130,marginBottom:70}}>
 			
-        <div   class="card-body height3">
+        <div   class="card-body height3" ref={messageRef}>
         			<ul   class="chat-list">
 						{fromId === user?.uid  &&(
                         <li class="in">

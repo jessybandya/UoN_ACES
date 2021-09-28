@@ -9,7 +9,7 @@ import { Grid, makeStyles } from "@material-ui/core";
 import CircularProgress from '@mui/material/CircularProgress';
 import Box from '@mui/material/Box';
 
-function Register() {
+function Test() {
     const history = useHistory("");
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
@@ -528,4 +528,4 @@ function Register() {
     )
 }
 
-export default Register
+export default Test
