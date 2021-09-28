@@ -23,9 +23,10 @@ const useStyles = makeStyles((theme) => ({
   container: {
     height: "100vh",
     color: "white",
+    zIndex:2,
     paddingTop: theme.spacing(10),
     backgroundColor: theme.palette.primary.main,
-    position: "fixed",
+    position: "sticky",
     top: 0,
     [theme.breakpoints.up("sm")]: {
       backgroundColor: "white",
@@ -75,7 +76,7 @@ const logout = () => {
   }
 }
   return (
-    <Container className={classes.container}>
+    <Container  className={classes.container}>
       <div className={classes.item} className="leftNav" style={{display: "flex",alignItems:"center",height:50,cursor:"pointer",borderRadius:10}}>
       {/* <Badge badgeContent={411} color="error" className={classes.badge}> */}
         <Home className={classes.icon} />

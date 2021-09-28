@@ -13,7 +13,7 @@ import {
   const useStyles = makeStyles((theme) => ({
     container: {
       paddingTop: theme.spacing(10),
-      position: "fixed",
+      position: "sticky",
       top: 0,
     },
     title: {
