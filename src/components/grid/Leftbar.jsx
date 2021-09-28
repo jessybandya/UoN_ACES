@@ -25,7 +25,7 @@ const useStyles = makeStyles((theme) => ({
     color: "white",
     paddingTop: theme.spacing(10),
     backgroundColor: theme.palette.primary.main,
-    position: "sticky",
+    position: "fixed",
     top: 0,
     [theme.breakpoints.up("sm")]: {
       backgroundColor: "white",
